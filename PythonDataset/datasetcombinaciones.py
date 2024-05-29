@@ -48,7 +48,7 @@ try:
 #********************************************************************************************************
 #MEZCLA
 
-    df5= pd.merge(df1,df3,on='Nombre',how='outer')
+    df5= pd.merge(df1,df3,on='Nombre',how='right')
 
     print(df5)
 
