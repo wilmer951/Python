@@ -5,4 +5,4 @@ df = pd.read_csv('C:/xampp/htdocs/Python/PythonDataset/dataset1.csv',encoding='l
 print(df[df.Numer>300])
 
 
-#este es un camio
+#este es un cambio de prueba
