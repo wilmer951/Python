@@ -1,5 +1,6 @@
 import pandas as pd
 
-df = apd.read_csv('C:/xampp/htdocs/Python/PythonDataset/dataset1.csv',encoding='latin-1',sep=';')
+df = pd.read_csv('C:/xampp/htdocs/Python/PythonDataset/dataset1.csv',encoding='latin-1',sep=';')
 
-print(df.head())
+print(df[df.Numer>300])
+
