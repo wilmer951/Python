@@ -13,14 +13,10 @@ df2=df[filtrar].head(5).reset_index(drop=True)
 
 
 #IMPRIMIR DF2
-print(df2)
+print(df2.sort_values('Numer',ascending=True))
 
 print('Otro resultado')
-print(df2.loc[0,'Year'])
-
-
-
-
+print(df2.loc[0,'Year'] )
 
 
 #este es un cambio de prueba
