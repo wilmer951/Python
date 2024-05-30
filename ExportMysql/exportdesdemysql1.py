@@ -8,7 +8,11 @@ try:
 
   df = pd.read_sql(sql_query,engine)
 
-  print(df.head(10))
+  df2=df[df.id>=10]
+
+
+  print(df2.head(10))
+
 
 
 
