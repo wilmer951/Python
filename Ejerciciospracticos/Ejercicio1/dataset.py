@@ -6,6 +6,8 @@ try:
     df = pd.read_csv(archivo,sep=';')
 
 
+    df = df['Nombre']
+
     print(df)
 except Exception as e:
 
