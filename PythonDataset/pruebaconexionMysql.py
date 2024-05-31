@@ -2,18 +2,23 @@ import pandas as pd
 import mysql.connector
 
 
-archivo = 'prueba.xlsx'
+try:
 
-df =pd.read_excel(archivo)
+    archivo = 'C:/xampp/htdocs/Python/PythonDataset/prueba.xlsx'
+
+    df =pd.read_excel(archivo)
 
 
-conexion = mysql.connector.connect(
-    host='localhost',
-    user='root',
-    password='',
-    database='basededatos'
-)
-cursor = conexion.cursor()
+    conexion = mysql.connector.connect(
+        host='localhost',
+        user='root',
+        password='',
+        database='basededatos'
+    )
+    cursor = conexion.cursor()
+
+except Exception as e:
+    print("Error Presentado:", e)
 
 # Itera sobre cada fila del DataFrame y realiza la inserción en la base de datos
 
