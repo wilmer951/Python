@@ -1,0 +1,221 @@
+ import mysql.connector
+
+
+
+**********************************************************************************************************************************************************
+
+CONEXION BASE DE DATOS MYSQL  2 
+
+***********************************************************************************************************************************************************
+
+
+pip install mysql-connector-python
+
+
+
+
+
+   
+
+    # Establecer la conexión
+    conexion = mysql.connector.connect(
+    host="localhost",
+    user="tu_usuario",
+    passwd="tu_contraseña",
+    database="nombre_de_la_base_de_datos")
+    print("conexion exitosa")
+
+
+
+except Exception as e:
+    print("Error de conexion:", type(e).__name__, "-", e)
+
+
+
+
+
+
+**********************************************************************************************************************************************************
+
+CONEXION BASE DE DATOS MYSQL  2  consulta de tabla
+
+***********************************************************************************************************************************************************
+
+
+
+
+    import mysql.connector
+
+    # Establecer la conexión
+    conexion = mysql.connector.connect(
+    host="localhost",
+    user="tu_usuario",
+    passwd="tu_contraseña",
+    database="nombre_de_la_base_de_datos")
+    print("conexion exitosa")
+
+
+
+
+
+
+    cursor = conexion.cursor()
+    cursor.execute("SELECT * FROM mi_tabla")
+
+    # Obtener todos los registros
+    registros = cursor.fetchall()
+
+
+
+////////////////////////////////////////////////////// mostrar resultados
+    for registro in registros:
+        print(registro)
+
+
+////////////////////////////////////////////////////// mostrar resultados
+
+
+
+/////////////////////////////////////////////////////  mostrar resultatados en datafreame
+
+        columnas = [desc[0] for desc in cursor.description]
+        df = pd.DataFrame(registros, columns=columnas)
+        print(df)
+
+////////////////////////////////////////////////////// mostrar resultados
+
+
+
+    conexion.close()
+
+
+
+
+except Exception as e:
+    print("Error de conexion:", type(e).__name__, "-", e)
+
+
+
+
+
+
+
+
+
+**********************************************************************************************************************************************************
+
+CONEXION BASE DE DATOS MYSQL  2  EXPORTAR DE EXCEL A MYSQL DIRECTAMENTE
+
+**********************************************************************************************************************************************************
+
+
+
+import pandas as pd
+import mysql.connector
+
+
+#CONSULTAR ARCHIVO EXCEL A IMPORTAR
+archivo = 'C:/xampp/htdocs/Python/PythonDataset/prueba.xlsx'
+df =pd.read_excel(archivo)
+
+
+try:
+
+#CONEXION A BASE DE DATOS
+    conexion = mysql.connector.connect(
+    host="localhost",
+    user="root",
+    passwd="",
+    database="basededatos")
+    print("conexion exitosa")
+    
+
+
+#IMPORTACION DE DATOS DE EXCEL A MYSQL
+    cursor = conexion.cursor()
+
+    
+    for indice_fila, fila in df.iterrows():
+
+
+        query = "INSERT INTO tbprueba (Nombre, Materia) VALUES (%s, %s)"
+        valores = (fila['Nombre'], fila['Materia'])
+        cursor.execute(query, valores)
+        print("Inserción exitosa para la fila:", indice_fila)
+
+# envio de datos.
+    conexion.commit()
+
+# Cierra la conexión
+    conexion.close()
+
+
+
+
+
+except Exception as e:
+    print("Error de conexion:", type(e).__name__, "-", e)
+
+
+
+
+
+
+
+
+
+
+**********************************************************************************************************************************************************
+
+CONEXION BASE DE DATOS MYSQL  2  EXPORTAR DE EXCEL A MYSQL DATAFRAME PANDAS
+
+**********************************************************************************************************************************************************
+
+
+
+import pandas as pd
+import mysql.connector
+
+
+#CONSULTAR ARCHIVO EXCEL A IMPORTAR
+archivo = 'C:/xampp/htdocs/Python/data/estudiantes.xlsx'
+df =pd.read_excel(archivo)
+
+
+try:
+
+#CONEXION A BASE DE DATOS
+    conexion = mysql.connector.connect(
+    host="localhost",
+    user="root",
+    passwd="",
+    database="basededatos")
+    print("conexion exitosa")
+    
+    nombre_tabla = "tbprueba"
+
+ 
+
+    print(df)
+
+    cursor = conexion.cursor()
+    # Inserta los datos del DataFrame en la tabla
+    for _, fila in df.iterrows():
+        cursor.execute(f"INSERT INTO {nombre_tabla} (Nombre, Materia) VALUES (%s, %s)", (fila['Nombre'], fila['Materia']))
+    print("insersion exitosa")
+
+# envio datos
+    conexion.commit()
+
+# Cierra la conexión
+    conexion.close()
+
+
+
+
+
+except Exception as e:
+    print("Error de conexion:", type(e).__name__, "-", e)
+
+
+
