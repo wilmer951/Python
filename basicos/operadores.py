@@ -22,8 +22,8 @@ try:
     sql_query = 'SELECT * FROM tbprueba'
     df = pd.read_sql(sql_query, engine)
 
-    df = df[(df['Materia'] == 'sociales') & (
-        df['Edad'] > 19)][['Nombre', 'Materia']]
+    df = df[(df['Materia'] == 'Ingles') & (
+        df['Edad'] > 20)][['Nombre', 'Edad']]
     print(df)
 
 
