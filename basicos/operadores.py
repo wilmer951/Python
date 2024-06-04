@@ -1,51 +1,37 @@
+
 import pandas as pd
+
 
 from sqlalchemy import create_engine
 
-# Parámetros de conexión
-server = '192.168.0.16'
-database = 'basededatos'
-username = 'adm'
-password = 'Colombia2024'
-driver = 'ODBC Driver 17 for SQL Server'  # Esto puede variar según tu configuración
-#driver = 'ODBC+Driver+17+for+SQL+Server'  # Nombre del controlador 
-
-
-
-# Cadena de conexión
-
+# datos conexion base de datos
+nombrebasededatos = 'basededatos'
+usuario = 'root'
+password = ''
 
 try:
-    # Conexión
-    engine = create_engine(f'mssql+pyodbc://{username}:{password}@{server}/{database}?driver={driver}')
+
+    engine = create_engine(
+        f'mysql+mysqlconnector://{usuario}:{password}@localhost/{nombrebasededatos}')
     connection = engine.connect()
     print('Conexión exitosa')
-    
-#****************************************************************************
 
-   
 
-    archivo = 'C:/xampp/htdocs/Python/data/estudiantes.xlsx'
-    df=pd.read_excel(archivo)
-    df=df[['Nombre','Materia']]
+# ******************************************************************************************************************
 
+    sql_query = 'SELECT * FROM tbprueba'
+    df = pd.read_sql(sql_query, engine)
+
+    df = df[(df['Materia'] == 'sociales') & (
+        df['Edad'] > 19)][['Nombre', 'Materia']]
     print(df)
 
 
-   
+# ******************************************************************************************************************
 
-    #se inserta en base de datos.
-    df.to_sql('tbprueba', con=engine, if_exists='append', index=False)
-
-    print("Inserccion exitosa")
-
-        
-    
-#****************************************************************************
-    # Cerrar conexión
-    engine.dispose()
+    # Cerrar la conexión explícitamente cuando hayas terminado
+    connection.close()
+    print('Conexión cerrada')
 
 except Exception as e:
     print("Error:", type(e).__name__, "-", e)
-
-  
