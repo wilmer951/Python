@@ -8,6 +8,23 @@
 
 
 
+
+
+
+
+
+
+
+
+********* ordenar dataframe
+
+
+df = df.sort_values(by='Precio', ascending=False)
+
+
+
+
+
  *********  consultar ifnormacion de sql server
 
 
@@ -18,3 +35,72 @@
     while row:
         print(row[0])
         row = cursor.fetchone()
+
+
+
+
+
+ *********  RECORRIDO DE DICCIONARIO
+
+amigos = {'juan': 20, 'Maria': 20, 'Jose': 30}
+
+
+for nombre, edad in amigos.items():
+    print(f'Nombre:  {nombre} y la edad es {edad}')
+
+
+
+
+ *********  RECORRIDO DE LISTAS
+
+frutas = ['manzana', 'pera', 'limon']
+
+
+for a in frutas:
+    print(a)
+
+
+
+
+*************************** DOS LISTAS A UNDICCIONARIO.
+
+
+
+    import pandas as pd
+
+
+frutas = ['Manzana', 'Pera', 'Lulo', 'Mango']
+precio = ['100', '200', '300', '100']
+
+
+diccionario = dict(zip(frutas, precio))
+print(diccionario)
+
+
+
+
+*************************** DOS LISTAS A DF.
+
+
+import pandas as pd
+
+
+frutas = ['Manzana', 'Pera', 'Lulo', 'Mango']
+precio = ['100', '200', '300', '100']
+
+
+df = pd.DataFrame({'Frutas': frutas, 'Precio': precio})
+
+
+print(df)
+
+
+
+**************  set elimina elementos duplicados.
+
+
+lista = [10, 20, 30, 50, 10, 10, 10, 10, 20, 30]
+
+lista = set(lista)
+
+print(lista)

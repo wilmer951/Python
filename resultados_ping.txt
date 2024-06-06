@@ -1,1 +1,9 @@
-linea
+La IP 192.168.0.2 : KO
+La IP 192.168.0.3 : KO
+La IP 192.168.0.4 : KO
+La IP 192.168.0.5 : KO
+La IP 192.168.0.6 : KO
+La IP 192.168.0.7 : KO
+La IP 192.168.0.8 : KO
+La IP 192.168.0.9 : KO
+La IP localhost : OK
