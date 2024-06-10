@@ -26,5 +26,20 @@ df = df.sort_values(by='Precio', ascending=False)
 
 
 
+*********  primera fila son los titulso de las columnas
+ df = pd.read_excel(data_clientes, index_col='idclientes', header=0)
 
- 
+
+
+
+
+
+
+
+
+
+
+ ****** asis 
+
+ 0 opearcioens por columnas
+ 1  operacione spor filas.
