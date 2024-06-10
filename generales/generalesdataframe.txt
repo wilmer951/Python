@@ -1,0 +1,30 @@
+********* resetar index de un datafrema
+        df_reset = df.reset_index()
+
+
+
+********* ordenar dataframe
+
+
+df = df.sort_values(by='Precio', ascending=False)
+
+
+
+
+
+ *********  consultar ifnormacion de sql server
+
+
+    cursor.execute("SELECT @@version;") 
+    
+    # Obtener los resultados
+    row = cursor.fetchone()
+    while row:
+        print(row[0])
+        row = cursor.fetchone()
+
+
+
+
+
+ 
