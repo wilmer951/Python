@@ -9,7 +9,7 @@ try:
     archivo = 'C:/xampp/htdocs/Python/data/ip.xlsx'
     df = pd.read_excel(archivo)
 
-    with open('resultados_ping.txt', 'w') as archivo_resultados:
+    with open('C:/xampp/htdocs/Python/data/resultados_ping.txt', 'w') as archivo_resultados:
         for columna in df.columns:
             for valor in df[columna]:
                 ip = valor
@@ -25,7 +25,7 @@ try:
     archivo = 'C:/xampp/htdocs/Python/data/ip.xlsx'
 
     df = pd.read_excel(archivo)
-    with open('resultados_ping.txt', 'w') as archivo_resultados:
+    with open('C:/xampp/htdocs/Python/data/resultados_ping.txt', 'w') as archivo_resultados:
         for index, row in df.iterrows():
             ip = row[0]
             resultado = os.system(f'ping -n 1 {ip}')
