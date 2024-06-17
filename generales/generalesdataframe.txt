@@ -43,3 +43,22 @@ df = df.sort_values(by='Precio', ascending=False)
 
  0 opearcioens por columnas
  1  operacione spor filas.
+
+
+
+
+ ********************** RECORREER UN RANGO CON RANGE
+
+
+ for index in range(fechainicial, fechafinal+1):
+
+    datafecha.append(index)
+    dataventa.append(int(input('Ingrese venta ')))
+    print(index)
+
+
+
+ ********************** convertir valroes.
+
+ventas = df['Ventas'].astype(float)
+gastos = df['Gastos'].astype(float)

@@ -1,19 +1,38 @@
+
 import pandas as pd
 
+from sqlalchemy import create_engine
 
-data_clientes = 'C:/xampp/htdocs/Python/data/clientes.xlsx'
-data_ventas = 'C:/xampp/htdocs/Python/data/ventas.xlsx'
-
-
-df_clientes = pd.read_excel(data_clientes)
-df_ventas = pd.read_excel(data_ventas)
-
-df_clientes = df_clientes.set_index('idclientes')
-df_ventas = df_ventas.set_index('Idventascliente')
-
-
-df_resumen = df_clientes.merge(
-    df_ventas, left_on='idclientes', right_on='Idventascliente', how='outer')
+# Parámetros de conexión
+server = '10.0.0.13,2616'
+database = 'ESP_TransactionPay'
+username = 'smartadmin'
+password = 'smartadmin'
+# Esto puede variar según tu configuración
+driver = 'ODBC Driver 17 for SQL Server'
+# driver = 'ODBC+Driver+17+for+SQL+Server'  # Nombre del controlador
 
 
-print(df_resumen)
+# Cadena de conexión
+
+
+try:
+    # Conexión
+
+    engine = create_engine(
+        f'mssql+pyodbc://{username}:{password}@{server}/{database}?driver={driver}')
+    connection = engine.connect()
+    print('Conexión exitosa')
+
+# ****************************************************************************
+    sql_query = "SELECT [CLIENTE],[MEDIOPAGO],[FECHA],[CODIGOTRANSACCION],[CONCEPTO] ,CAST(VALORPAGADO AS int) as VALORPAGADO FROM [ESP_TransactionPay].[dbo].[ESPV_TransaccionesClientes] where year(FECHA)=2024 and month(FECHA)=05and Estado='APROBADO' and MEDIOPAGO = 'DAVIPLATA'"
+    df = pd.read_sql(sql_query, engine)
+
+    print(df)
+
+# ****************************************************************************
+    # Cerrar conexión
+    engine.dispose()
+
+except Exception as e:
+    print("Error:", type(e).__name__, "-", e)
