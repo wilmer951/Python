@@ -1,17 +1,19 @@
 import pandas as pd
 from django.http import HttpResponse
-from django.template.loader import get_template
+
+from django.shortcuts import render
 
 
-def prueba(request):
+def dataframe(request):
 
     archivo = 'C:/xampp/htdocs/Python/data/clientes.xlsx'
     df = pd.read_excel(archivo, skiprows=0)
     df = df.set_index(df.columns[0])
-
     df_html = df.to_html()
 
-    template = get_template('templatebasic.html')
-    respuesta = template.render({'data': df_html})
+    return render(request, 'pagedataframe.html', {'data': df_html})
 
-    return HttpResponse(respuesta)
+
+def home(request):
+
+    return render(request, 'home.html')
