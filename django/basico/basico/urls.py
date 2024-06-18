@@ -16,11 +16,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from basico.views import home, dataframe
+from basico.views import home, dataframe, db
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
     path('', home),
+    path('admin/', admin.site.urls),
     path('dataframe/', dataframe),
+    path('db/', db),
 
 ]

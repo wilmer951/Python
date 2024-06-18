@@ -3,6 +3,8 @@ from django.http import HttpResponse
 
 from django.shortcuts import render
 
+from .conexion.conexion import Çlassonexion
+
 
 def dataframe(request):
 
@@ -17,3 +19,26 @@ def dataframe(request):
 def home(request):
 
     return render(request, 'home.html')
+
+
+def db(request):
+    try:
+        # Crear instancia de Conexion
+        mi_conexion = Çlassonexion()
+
+        # Llamar al método conectar para obtener la conexión
+        conexion = mi_conexion.conectar()
+        resultado = "Conexión exitosa."
+
+        sql_query = 'SELECT * FROM tbprueba'
+        df = pd.read_sql(sql_query, conexion)
+        conexion.close()
+        df_html = df.to_html(index=False)
+
+        # Cerrar la conexión cuando haya terminado
+        resulconexion = 'ok'
+    except Exception as e:
+        resulconexion = f"No se pudo conectar: {str(e)}"
+        df_html = None
+
+    return render(request, 'db.html', {'resulconexion': resulconexion, 'resultado': df_html})
