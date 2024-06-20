@@ -1,0 +1,17 @@
+
+*************** crear un entorno virutal
+
+Crear entorno virutal 
+
+installar pip install virtualenv.
+
+virtualenv -p python3 env
+
+*********************** crear proyecto django.
+
+django-admin startproject nombre_del_proyecto
+
+
+
+*********************** correr sevidor django.
+python manage.py runserver
