@@ -1,0 +1,9 @@
+
+*************** crear un entorno virutal
+
+Crear entorno virutal 
+
+installar pip install virtualenv.
+
+virtualenv -p python3 env
+

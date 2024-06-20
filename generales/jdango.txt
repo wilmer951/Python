@@ -1,0 +1,23 @@
+*********************** crear proyecto django.
+
+django-admin startproject nombre_del_proyecto
+
+
+*********************** correr sevidor django.
+python manage.py runserver
+
+
+
+
+
+*********************** CREAR APP.
+python manage.py startapp miapp
+
+
+*********************** DB Migrar base de datos 
+
+para preprar las migraciones creadas
+        python manage.py makemigrations miapp
+
+para cargar las migraciones.
+       python manage.py migrate miapp  
