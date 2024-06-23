@@ -1,0 +1,70 @@
+{% extends "templete.html" %}
+
+{% block title %} Search {% endblock %}
+
+{% block content %}
+
+<h1>Formulario de busqueda</h1>
+
+
+
+    <div class="content mt-5">
+
+        <form action="/search/" method="get">
+
+            <div class="row mt-3">
+                <div class="col-6">
+                <input type="search" class="form-control" name="nameproduct">
+                </div>
+            </div>
+
+
+            <div class="row mt-3">
+                <div class="col-6">
+                <input type="submit" class="btn btn-primary" value="Buscar">
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+
+
+
+    <div class="resulsearch content mt-5">
+
+            {{respuesta}}
+
+  
+
+    
+           
+
+             
+
+               <table class="table">
+
+                    <thead>
+                        <tr>
+                            <td>Nombre</td>
+                            <td>Precio</td>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        {% for producto in query %}
+                        <tr>
+                            <td>{{producto.nombre}}</td>
+                            <td>{{producto.precio}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+               </table>
+                
+       
+                
+
+    </div>
+
+{% endblock %}

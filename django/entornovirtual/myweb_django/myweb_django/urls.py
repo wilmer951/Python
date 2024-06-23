@@ -17,7 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from myweb_django.views import home
+from miapp import views
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('home/', home),]
+    path('home/', home),
+    path('formsearch/', views.FormSearch),
+    path('search/', views.Search),
+]
