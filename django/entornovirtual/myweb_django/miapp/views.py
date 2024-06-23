@@ -12,9 +12,9 @@ def FormSearch(request):
 
 def Search(request):
 
-    get_producto = request.GET["nameproduct"]
+    if request.GET.get("nameproduct"):
 
-    if request.GET["nameproduct"]:
+        get_producto = request.GET["nameproduct"]
 
         productos = Producto.objects.filter(nombre__icontains=get_producto)
 
@@ -26,3 +26,18 @@ def Search(request):
         mensaje = " Ningun resultado"
 
         return render(request, "formsearch.html", {"respuesta": mensaje})
+
+
+def contact(request):
+
+    if request.method == 'POST':
+
+        mensaje = "mensaje enviado"
+
+        return render(request, "formcontact.html", {"respuesta": mensaje})
+
+    else:
+
+        mensaje = ""
+
+        return render(request, "formcontact.html", {"respuesta": mensaje})

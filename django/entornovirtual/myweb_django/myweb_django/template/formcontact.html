@@ -1,0 +1,58 @@
+{% extends "templete.html" %}
+
+{% block title %} contact {% endblock %}
+
+{% block content %}
+
+<h1>Formulario de contacto</h1>
+
+
+
+    <div class="content mt-5">
+
+        <form action="/contact/" method="POST" class="form">{% csrf_token %}
+
+
+
+            <div class="row mt-3">
+                <div class="col-6">
+                <label class="floatingInput">Nombre</label>
+                <input type="text" class="form-control" name="firstname">
+                </div>
+            </div>
+
+            <div class="row mt-3">
+                <div class="col-6">
+                <label class="floatingInput">Apellidos</label>
+                <input type="text" class="form-control" name="lastname">
+                </div>
+            </div>
+
+
+            <div class="row mt-3">
+                <div class="col-6">
+                <label class="floatingInput">Correo</label>    
+                <input type="email" class="form-control" name="email">
+                </div>
+            </div>
+
+
+
+
+
+
+            <div class="row mt-3">
+                <div class="col-6">
+                <input type="submit" class="btn btn-primary" value="Buscar">
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+
+
+        {{respuesta}}
+
+
+{% endblock %}

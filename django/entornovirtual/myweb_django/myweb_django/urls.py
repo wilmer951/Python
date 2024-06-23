@@ -25,4 +25,5 @@ urlpatterns = [
     path('home/', home),
     path('formsearch/', views.FormSearch),
     path('search/', views.Search),
+    path('contact/', views.contact),
 ]
