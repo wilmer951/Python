@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% load static %} 
+
+    <link rel="stylesheet" href="{% static 'Bootstrap/css/bootstrap.min.css' %}">
+
+
+    <title>{% block title %} {% endblock %}</title>
+</head>
+<body>
+
+
+
+
+<div class="menu">
+
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="{% url 'home'%}">Home</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link {% if request.path == '/contactus' %} active {% endif %}" aria-current="page" href="{% url 'contactus'%}">Contact us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link {% if request.path == '/blog' %} active {% endif %}" href="{% url 'blog'%}">blog</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link {% if request.path == '/about' %} active {% endif %}" href="{% url 'about'%}">about</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link {% if request.path == '/services' %} active {% endif %}" href="{% url 'services'%}">services</a>
+              </li>
+          
+          
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="container">
+
+    {% block content %}
+
+
+    {% endblock %}
+
+</div>
+
+
+
+
+
+
+<link rel="stylesheet" href="{% static 'Bootstrap/js/bootstrap.min.js' %}">
+</body>
+</html>

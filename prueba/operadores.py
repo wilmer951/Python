@@ -1,38 +1,33 @@
-
-import pandas as pd
-
-from sqlalchemy import create_engine
-
-# Parámetros de conexión
-server = '10.0.0.13,2616'
-database = 'ESP_TransactionPay'
-username = 'smartadmin'
-password = 'smartadmin'
-# Esto puede variar según tu configuración
-driver = 'ODBC Driver 17 for SQL Server'
-# driver = 'ODBC+Driver+17+for+SQL+Server'  # Nombre del controlador
+from sys import stdin
 
 
-# Cadena de conexión
+def is_number_prime(input):
+    try:
+        # Convertir el input a entero y eliminar espacios extra
+        num = int(input.strip())
+        if num <= 1:
+            return "NO_ES_PRIMO"  # 0 y 1 no son primos
+        elif num == 2:
+            return "PRIMO"  # 2 es primo
+        elif num % 2 == 0:
+            return "NO_ES_PRIMO"  # Los números pares mayores que 2 no son primos
+
+        # Comprobar si num es divisible por algún número impar desde 3 hasta su raíz cuadrada
+        i = 3
+        while i * i <= num:
+            if num % i == 0:
+                return "NO_ES_PRIMO"  # No es primo
+            i += 2  # Pasamos al siguiente número impar
+
+        return "PRIMO"  # Si no se encontró ningún divisor, es primo
+    except ValueError:
+        return "NO_ES_PRIMO"  # Si no se pudo convertir a entero, no es un número válido
 
 
-try:
-    # Conexión
+# Leer de stdin línea por línea
+for line in stdin:
+    print(is_number_prime(line), end='')
 
-    engine = create_engine(
-        f'mssql+pyodbc://{username}:{password}@{server}/{database}?driver={driver}')
-    connection = engine.connect()
-    print('Conexión exitosa')
 
-# ****************************************************************************
-    sql_query = "SELECT [CLIENTE],[MEDIOPAGO],[FECHA],[CODIGOTRANSACCION],[CONCEPTO] ,CAST(VALORPAGADO AS int) as VALORPAGADO FROM [ESP_TransactionPay].[dbo].[ESPV_TransaccionesClientes] where year(FECHA)=2024 and month(FECHA)=05and Estado='APROBADO' and MEDIOPAGO = 'DAVIPLATA'"
-    df = pd.read_sql(sql_query, engine)
-
-    print(df)
-
-# ****************************************************************************
-    # Cerrar conexión
-    engine.dispose()
-
-except Exception as e:
-    print("Error:", type(e).__name__, "-", e)
+numero = 17
+resultado = is_number_prime(numero)
