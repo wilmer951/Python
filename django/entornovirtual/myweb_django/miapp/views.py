@@ -1,43 +1,23 @@
 from django.shortcuts import render
-from django.http import HttpRequest
-from miapp.models import Producto
+
 
 # Create your views here.
 
+def services(request):
 
-def FormSearch(request):
-
-    return render(request, "formsearch.html")
-
-
-def Search(request):
-
-    if request.GET.get("nameproduct"):
-
-        get_producto = request.GET["nameproduct"]
-
-        productos = Producto.objects.filter(nombre__icontains=get_producto)
-
-        mensaje = f"Producto a buscar: {get_producto}"
-
-        return render(request, "formsearch.html", {"respuesta": mensaje, "query": productos})
-
-    else:
-        mensaje = " Ningun resultado"
-
-        return render(request, "formsearch.html", {"respuesta": mensaje})
+    return render(request, 'miapp/services.html')
 
 
-def contact(request):
+def about(request):
 
-    if request.method == 'POST':
+    return render(request, 'miapp/about.html')
 
-        mensaje = "mensaje enviado"
 
-        return render(request, "formcontact.html", {"respuesta": mensaje})
+def blog(request):
 
-    else:
+    return render(request, 'miapp/blog.html')
 
-        mensaje = ""
 
-        return render(request, "formcontact.html", {"respuesta": mensaje})
+def contactus(request):
+
+    return render(request, 'miapp/contactus.html')
