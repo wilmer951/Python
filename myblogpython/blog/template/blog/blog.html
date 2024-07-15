@@ -1,0 +1,40 @@
+{% extends "../template.html" %}
+
+{% block title %} BLOG {% endblock %}
+
+{% block content %}
+
+<h1>Esta seria la pagina BLOG</h1>
+
+
+<div>
+
+    {% for item in Categorys%}          
+    
+<a href="{% url 'category' item.id%}">{{item.title_category}}</a>
+     
+    {% endfor %}
+    
+</div>
+
+
+{% for item in posts %}          
+
+<div class="card mt-5" style="width: 25rem;">
+    <img src="{{ item.image.url }}" class="card-img-top" alt="...">
+    <div class="card-body">
+    <h5 class="card-title">{{ item.title_post }}</h5>
+    <p class="card-text">{{ item.contenet }}</p>
+    <p class="card-text">{{ item.autor }}</p>
+    
+    
+
+    </div>
+</div>
+
+{% endfor %}
+
+
+
+
+{% endblock %}

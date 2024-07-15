@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'miapp',
     'miappservices',
+    'blog',
 
 
 
@@ -60,7 +61,7 @@ ROOT_URLCONF = 'myblogpython.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['C:/xampp/htdocs/Python/myblogpython/miapp/template/', 'C:/xampp/htdocs/Python/myblogpython/miappservices/template/'],
+        'DIRS': ['C:/xampp/htdocs/Python/myblogpython/miapp/template/', 'C:/xampp/htdocs/Python/myblogpython/miappservices/template/', 'C:/xampp/htdocs/Python/myblogpython/blog/template/'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
