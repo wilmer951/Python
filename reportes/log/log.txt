@@ -1,0 +1,47 @@
+2024-07-17 15:20:16.563850  Borrado exitoso 
+2024-07-17 15:20:17.940474  conexion exitosa 
+2024-07-17 15:20:17.944480  fecha inicial reporte 2024  07  08  
+2024-07-17 15:20:17.944480  fecha final de reporte 2024  07  14  
+2024-07-17 15:20:18.619502  Cantiad de resultados 3  
+2024-07-17 15:20:19.954496  El email fue enviado exitosamente.
+2024-07-17 15:20:20.026204  conexion cerrada 
+2024-07-17 15:20:20.872026  conexion exitosa 
+2024-07-17 15:20:20.872026  fecha inicial reporte 2024  07  08  
+2024-07-17 15:20:20.872026  fecha final de reporte 2024  07  14  
+2024-07-17 15:20:21.858717  Cantiad de resultados 329  
+2024-07-17 15:20:22.372871  El email fue enviado exitosamente.
+2024-07-17 15:20:22.451288  conexion cerrada 
+2024-07-17 15:28:07.404485  Borrado exitoso 
+2024-07-17 15:28:07.404485  Borrado exitoso 
+2024-07-17 15:28:08.744449  conexion exitosa 
+2024-07-17 15:28:08.744449  fecha inicial reporte 2024  07  08  
+2024-07-17 15:28:08.744449  fecha final de reporte 2024  07  14  
+2024-07-17 15:28:09.449499  Cantiad de resultados 3  
+2024-07-17 15:28:10.720944  El email fue enviado exitosamente.
+2024-07-17 15:28:10.798734  conexion cerrada 
+2024-07-17 15:28:11.659873  conexion exitosa 
+2024-07-17 15:28:11.659873  fecha inicial reporte 2024  07  08  
+2024-07-17 15:28:11.659873  fecha final de reporte 2024  07  14  
+2024-07-17 15:28:12.660994  Cantiad de resultados 329  
+2024-07-17 15:28:13.199124  El email fue enviado exitosamente.
+2024-07-17 15:28:13.269384  conexion cerrada 
+2024-07-17 15:41:01.248867  Borrado exitoso 
+2024-07-17 15:41:01.248867  Borrado exitoso 
+2024-07-17 15:41:02.735057  conexion exitosa 
+2024-07-17 15:41:02.735057  fecha inicial reporte 2024  07  08  
+2024-07-17 15:41:02.735057  fecha final de reporte 2024  07  14  
+2024-07-17 15:41:03.622930  Cantiad de resultados Daviplata 3  
+2024-07-17 15:41:04.859824  El email fue enviado exitosamente.
+2024-07-17 15:41:04.959514  conexion cerrada 
+2024-07-17 15:41:05.790961  conexion exitosa 
+2024-07-17 15:41:05.794969  fecha inicial reporte 2024  07  08  
+2024-07-17 15:41:05.794969  fecha final de reporte 2024  07  14  
+2024-07-17 15:41:06.785890  Cantiad de resultados Carroya 329  
+2024-07-17 15:41:07.311009  El email fue enviado exitosamente.
+2024-07-17 15:41:07.380768  conexion cerrada 
+2024-07-17 15:41:08.211403  conexion exitosa 
+2024-07-17 15:41:08.211403  fecha inicial reporte 2024  07  08  
+2024-07-17 15:41:08.211403  fecha final de reporte 2024  07  14  
+2024-07-17 15:41:08.712211  Cantiad de resultados EZYPASS 3  
+2024-07-17 15:41:08.858381  El email fue enviado exitosamente.
+2024-07-17 15:41:08.930558  conexion cerrada 
