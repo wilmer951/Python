@@ -1,10 +1,15 @@
 import requests
+import random
+import os
 import pandas as pd
 
+directorio_script = os.path.dirname(os.path.abspath(__file__))
+print(directorio_script)
 # Rutas de los archivos
-file_origen = 'C:/xampp/htdocs/Python/prueba/origen.xlsx'
-file_lista = 'C:/xampp/htdocs/Python/prueba/lista.xlsx'
-file_llaveform = 'C:/xampp/htdocs/Python/prueba/llaveform.txt'
+file_origen = os.path.join(directorio_script, 'origen.xlsx')
+file_lista = os.path.join(directorio_script, 'lista.xlsx')
+file_llaveform = os.path.join(directorio_script, 'llaveform.txt')
+
 
 # Leer los archivos Excel
 df = pd.read_excel(file_origen)
@@ -24,6 +29,14 @@ pregunta3 = df.loc[2, 'valor']
 pregunta4 = df.loc[3, 'valor']
 
 
+# RESPUESTAS ESTATISCAS
+
+
+# RESPUESTAS ALEATORIAS
+optionPregunta1 = ["Sí, asistiré", "No podré ir"]
+optionPregunta3 = ["Sitio web", "Amigo", "Boletín informativo", "Anuncio"]
+
+
 form_url1 = "https://docs.google.com/forms/u/0/d/e/"
 form_url2 = df3.iloc[0, 0]  # Acceder al primer valor de la primera columna
 form_url3 = "/formResponse"
@@ -34,10 +47,10 @@ form_url = f"{form_url1}{form_url2}{form_url3}"
 # Iterar sobre las filas del archivo de lista y enviar las respuestas
 for index, row in df2.iterrows():
     # Obtener las respuestas de cada fila
-    respuesta1 = row['respuesta1']
-    respuesta2 = row['respuesta2']
-    respuesta3 = row['respuesta3']
-    respuesta4 = row['respuesta4']
+    respuesta1 = random.choice(optionPregunta1)
+    respuesta2 = row['respuesta1']
+    respuesta3 = random.choice(optionPregunta3)
+    respuesta4 = ""
 
     # Datos a enviar al formulario (reemplaza 'entry.XXXX' con los identificadores correctos)
     data = {
@@ -45,6 +58,8 @@ for index, row in df2.iterrows():
         pregunta2: respuesta2,
         pregunta3: respuesta3,
         pregunta4: respuesta4
+
+
     }
 
     # Enviar los datos al formulario
